@@ -35,7 +35,7 @@ export class DepositController {
   }
 
   @Patch('approve/:id')
-  @Roles(['admin', 'user'])
+  @Roles(['admin'])
   @UseGuards(RoleGuard)
   approve(@Param('id') id: string) {
     return this.depositService.approve(id)

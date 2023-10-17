@@ -8,6 +8,6 @@ import { UserGuard } from 'src/user/user.guard'
 @Module({
   imports: [UserModule],
   controllers: [DepositController],
-  providers: [DepositService]
+  providers: [DepositService],
 })
 export class DepositModule {}
