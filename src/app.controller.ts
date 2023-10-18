@@ -6,7 +6,22 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  index(): string {
+  index() {
     return this.appService.index()
+  }
+
+  @Get('login')
+  login() {
+    return this.appService.login()
+  }
+
+  @Get('register')
+  register() {
+    return this.appService.register()
+  }
+
+  @Get('admin')
+  adminPanel() {
+    return this.appService.adminPanel()
   }
 }

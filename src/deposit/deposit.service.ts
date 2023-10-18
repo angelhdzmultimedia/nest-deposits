@@ -11,6 +11,10 @@ const deposits: any[] = []
 export class DepositService {
   constructor(private readonly userService: UserService) {}
 
+  findOne(id: string) {
+    return deposits.find((deposit) => deposit.id === id)
+  }
+
   create(userId: string, createDepositDto: CreateDepositDto) {
     const deposit: any = {
       ...createDepositDto,

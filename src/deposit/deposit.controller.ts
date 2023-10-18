@@ -19,7 +19,7 @@ import { UserGuard } from 'src/user/user.guard'
 export class DepositController {
   constructor(private readonly depositService: DepositService) {}
 
-  @Post('/:userId')
+  @Post('/user/:userId')
   @UseGuards(UserGuard)
   create(
     @Body() createDepositDto: CreateDepositDto,
@@ -28,10 +28,15 @@ export class DepositController {
     return this.depositService.create(userId, createDepositDto)
   }
 
-  @Get('/:userId')
+  @Get('/all/user/:userId')
   @UseGuards(UserGuard)
   findAll(@Param('userId') userId: string) {
     return this.depositService.findAll(userId)
+  }
+
+  @Get('/user/:id')
+  findOne(@Param('id') id: string) {
+    return this.depositService.findOne(id)
   }
 
   @Patch('approve/:id')
